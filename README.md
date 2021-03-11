@@ -2,7 +2,6 @@
 just a script :P <br><br>
 <img src="Brain Fuck+ logo.png" alt="drawing" width="200"/>
 <hr>
-<h4>keys: ,.` >< V^ [] -+</h4>
 
 | key | Description                                                                     |
 |-----|---------------------------------------------------------------------------------|
@@ -18,9 +17,14 @@ just a script :P <br><br>
 | - | subtract 1 from the curret head's/pointer's data, it is 0 then it will go to 255. |
 | + | adds 1 to the curret head's/pointer's data, it is 255 then it will go to 0.       |
 
-examples:<br>
-V\`[.^]<br>
-this will get a string and print it back out, backwards!<br>
-<br>
-V`[^][.V]<br>
-this odes the same thing but prints it normaly!<br>
+### Code examples
+
+> ``` V\`[.^]```
+
+> this will get a string and print it back out, backwards!
+
+<hr>
+
+> ```V\`[^][.V]```
+
+> this does the same thing but prints it normally!
