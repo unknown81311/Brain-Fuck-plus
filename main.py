@@ -1,4 +1,4 @@
-#brain fuck+ by unknown81311#6616
+#brain fuck+ by unknown81311#6616 & NotGrey#2415
 debug = True
 pointer = 0
 pointerTwo = 0
