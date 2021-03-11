@@ -19,7 +19,7 @@ while pc < len(code):
     if code[pc] == "^":
         pointerTwo = pointerTwo + 1
     if code[pc] == "[":
-        if grid[pointerTwo][pointer] == 0:
+        elif grid[pointerTwo][pointer] == 0:
             pairs = 0
             while pairs or code[pc] != "]":
                 if code[pc] == "[":
@@ -29,7 +29,7 @@ while pc < len(code):
                 pc = pc + 1
 
     if code[pc] == "]":
-        if grid[pointerTwo][pointer] != 0:
+        elif grid[pointerTwo][pointer] != 0:
             pairs = 0
             while pairs or code[pc] != "[":
                 if code[pc] == "]":
