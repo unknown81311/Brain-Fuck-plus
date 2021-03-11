@@ -1,5 +1,4 @@
-# Brain-Fuck-
-just a script :P <br><br>
+# Brain-Fuck-Pluse
 <img src="Brain Fuck+ logo.png" alt="drawing" width="200"/>
 <hr>
 
