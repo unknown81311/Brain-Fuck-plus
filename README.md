@@ -18,12 +18,12 @@
 
 ### Code examples
 
-> ``` V\`[.^]```
+> ``` V`[.^]```
 
 > this will get a string and print it back out, backwards!
 
 <hr>
 
-> ```V\`[^][.V]```
+> ```V`[^][.V]```
 
 > this does the same thing but prints it normally!
