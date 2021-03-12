@@ -4,7 +4,7 @@
 
 | key | Description                                                                     |
 |-----|---------------------------------------------------------------------------------|
-| , | get input character.                                                              |
+| , | get input characters.                                                             |
 | . | print data character.                                                             |
 | \` | get input string by setting each character's asci code down the "graph".         |
 | < | moves head/pointer left.                                                          |
