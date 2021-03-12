@@ -28,4 +28,6 @@
 
 > this does the same thing but prints it normally!
 
+<h5>notes:</h5>
+<p>it is best to lean normal Brain Fuck then come back to this, it will make it easier for you.</p>
 <a target="_blank" href="https://repl.it/github/cyleja1234/Brain-Fuck/blob/main/main.py"><img src="https://i.ibb.co/5XQm9kh/demo.png" alt="demo" border="0"></a>
