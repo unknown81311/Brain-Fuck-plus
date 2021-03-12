@@ -4,9 +4,9 @@
 
 | key | Description                                                                     |
 |-----|---------------------------------------------------------------------------------|
-| , | get input charicter.                                                              |
-| . | print data charicter.                                                             |
-| \` | get input string by setting each charicter's asci code down the "graph".         |
+| , | get input character.                                                              |
+| . | print data character.                                                             |
+| \` | get input string by setting each character's asci code down the "graph".         |
 | < | moves head/pointer left.                                                          |
 | > | moves head/pointer right.                                                         |
 | V | moves head/pointer down.                                                          |
