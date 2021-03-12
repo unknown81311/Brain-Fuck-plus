@@ -24,6 +24,6 @@
 
 <hr>
 
-> ```V`[^][.V]```
+> ```V`^[^]V[.V]```
 
 > this does the same thing but prints it normally!
