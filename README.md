@@ -18,15 +18,15 @@
 
 ### Code examples
 
-> ``` V`[.^]```
+ ``` V`[.^]```
 
-> this will get a string and print it back out, backwards!
+ this will get a string and print it back out, backwards!
 
 <hr>
 
-> ```V`^[^]V[.V]```
+ ```V`^[^]V[.V]```
 
-> this does the same thing but prints it normally!
+ this does the same thing but prints it normally!
 
 <h5>notes:</h5>
 <p>it is best to lean normal Brain Fuck then come back to this, it will make it easier for you.</p>
