@@ -48,7 +48,7 @@ while pc < len(code):# loop over code
     elif code[pc] == ".":# .
         print(chr(grid[pointerTwo][pointer]), end='')
     elif code[pc] == ",":# ,
-        grid[pointerTwo][pointer] = ord(input()[])
+        grid[pointerTwo][pointer] = ord(input()[0])
 
     pc = pc + 1
 
