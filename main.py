@@ -49,8 +49,12 @@ while pc < len(code):# loop over code
         print(chr(grid[pointerTwo][pointer]), end='')
     elif code[pc] == ",":# ,
         grid[pointerTwo][pointer] = ord(input()[0])
-
+    elif code[pc].isdigit():# if char is a number repeat last function
+        times = ""
+        while code[pc + 1].isdigit():#for each number
+            pc += 1
+            times += code[pc]
+        times = int(times)
     pc = pc + 1
-
     if debug == True:# if you are cool
         print (grid," ", code[pc-1])
