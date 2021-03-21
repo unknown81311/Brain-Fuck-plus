@@ -4,8 +4,47 @@ pc, pointer, pointerTwo = 0, 0, 0
 WIDTH, HEIGHT = 20, 20
 grid= [[0] * WIDTH for _ in range(HEIGHT)]# make grid
 
-code = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++."# set code here, here is an example
+def get_int(code, pc):
+    i = ''
+    code_s = len(code)
+    while pc < code_s and code[pc].isdigit():
+        i += code[pc]
+        pc += 1
+    return int(i if i else '1'), len(i)
 
+
+def preprocess(code):
+    code_s = len(code)
+    processed = ''
+    pc = 0
+    frames = []
+
+    while pc < code_s:
+        i, s = get_int(code, pc)
+        if frames:
+            processed += i * frames.pop()
+        if s:
+            pc += s
+            continue
+
+        if code[pc] in '-+.,><':
+            frames.append(code[pc])
+        else:
+            processed += code[pc]
+
+        pc += 1
+
+    if frames:
+        processed += i * frames.pop()
+
+    return processed
+
+
+code = '+3-[-10[+]+]-.3'
+processed = preprocess(code)
+if debug == True:# if you are cool
+    print(processed)
+code = processed
 while pc < len(code):# loop over code
     if code[pc] == "<":# <
         pointer = (pointer - 1) % WIDTH
