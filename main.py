@@ -6,7 +6,6 @@ grid= [[0] * WIDTH for _ in range(HEIGHT)]# make grid
 
 code = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++."# set code here, here is an example
 
-while pc < len(code):# loop over code
     def left(t):
     	if code[pc] == "<" or t:# <
     		tmp == "<"
@@ -30,7 +29,23 @@ while pc < len(code):# loop over code
     	elif code[pc] == "+" or t:# +
     		tmp == "+"
     	    grid[pointerTwo][pointer] = (grid[pointerTwo][pointer] + 1) % 256
+    def stringInput(t):
+    	elif code[pc] == "`" or t:# `
+    		tmp == "`"
+    	    var = map(ord, input())
+    	    for char in var:
+    	        grid[pointerTwo][pointer] = char
+    	        pointerTwo = pointerTwo - 1
+   	def pri(t):
+    	elif code[pc] == "." or t:# .
+    	    print(chr(grid[pointerTwo][pointer]), end='')
+   	def inp(t):
+    	elif code[pc] == "," or t:# ,
+    		tmp == ","
+    	    grid[pointerTwo][pointer] = ord(input()[0])
     elif code[pc] == "[":# [
+
+while pc < len(code):# loop over code
         if grid[pointerTwo][pointer] == 0:
             pairs = 1
             while pairs or code[pc] != "]":
@@ -49,20 +64,6 @@ while pc < len(code):# loop over code
                     pairs += 1
                 elif code[pc] == "[":
                     pairs -= 1
-    def stringInput(t):
-    	elif code[pc] == "`" or t:# `
-    		tmp == "`"
-    	    var = map(ord, input())
-    	    for char in var:
-    	        grid[pointerTwo][pointer] = char
-    	        pointerTwo = pointerTwo - 1
-   	def pri(t):
-    	elif code[pc] == "." or t:# .
-    	    print(chr(grid[pointerTwo][pointer]), end='')
-   	def inp(t):
-    	elif code[pc] == "," or t:# ,
-    		tmp == ","
-    	    grid[pointerTwo][pointer] = ord(input()[0])
    	left()
    	up()
    	down()
