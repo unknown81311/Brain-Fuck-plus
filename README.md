@@ -1,4 +1,5 @@
 # Brain-Fuck-Pluse
+<div style="text-align: right"> V3.0 </div>
 <img src="Brain Fuck+ logo.png" alt="drawing" width="200"/>
 <hr>
 
