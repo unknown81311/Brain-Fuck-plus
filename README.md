@@ -15,6 +15,8 @@
 | ] | end of loop.                                                                        |
 | - | subtract 1 from the curret head's/pointer's data, if it is 0 then it will go to 255.|
 | + | adds 1 to the curret head's/pointer's data, if it is 255 then it will go to 0.      |
+|num| repeats last key x times                                                            |
+| # | set color of text in the terminal for fun!                                          |
 
 ### Code examples
 
