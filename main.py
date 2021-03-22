@@ -95,7 +95,7 @@ def interpret(code, debug=False):
     
     
 WIDTH, HEIGHT = 20, 20
-code = ',>+255>+255>+0<<#<+32.>4+10.'
+code = ',>+255>+255>+0<<#<.'
 
 processed = preprocess(code)
 interpret(processed)
