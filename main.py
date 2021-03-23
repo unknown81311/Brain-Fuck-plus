@@ -1,4 +1,5 @@
 # brain fuck+ by unknown81311#6616 & NotGrey#2415
+import re
 
 def color(r=0, g=0, b=0):return f"\033[38;2;{r};{g};{b}m"
     
@@ -39,8 +40,9 @@ def preprocess(code):
     
     
 def interpret(code, debug=False):
-    lib = {"a": ">--[-----<+>]<-----."}
-
+    lib = {"r": "-#[-]"}
+    read = False
+    string=""
     pc, pointer, pointerTwo = 0, 0, 0
     grid = [[0] * WIDTH for _ in range(HEIGHT)]
     
@@ -84,7 +86,10 @@ def interpret(code, debug=False):
                 grid[pointerTwo][pointer] = char
                 pointerTwo = pointerTwo - 1
         elif code[pc] == ".":
+          if not read:
             print(chr(grid[pointerTwo][pointer]), end='')
+          else:
+            string += chr(grid[pointerTwo][pointer])
         elif code[pc] == ",":
             grid[pointerTwo][pointer] = ord(input()[0])
         elif code[pc] == "#":
@@ -95,13 +100,24 @@ def interpret(code, debug=False):
           code = code[:pc] + preprocess(lib[code[pc]]) + code[pc+1:]
           if debug:
             print(code)
+        elif code[pc] == "$":
+          if read:
+            s= open(string,"r").read()
+            for pair in s.split(';'):
+              if pair:
+                a, b = pair.split(':')
+                lib[a] = b
+            string=""
+            read = False
+          else:
+            read = True
         pc+=1
-        if True:
+        if debug:
             print(grid, " ", code[pc-1])
     
     
-WIDTH, HEIGHT = 5, 1
-code = 'a'
+WIDTH, HEIGHT = 10, 1
+code = '\$\-\-\[\-\5\>\+\<\]\>\-\3\.\+\1\2\.\-\3\.\+\3\.\+\3\.\$r+[-5>+3<]>+.---.+7..+3[-3>+<]>-5.--[->+4<]>-.-8.+3.-6.-8.-[-3>+<]>.'
 
 processed = preprocess(code)
 interpret(processed)
