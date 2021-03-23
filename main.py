@@ -9,8 +9,9 @@ def get_int(code, pc):
         i += code[pc]
         pc += 1
     return int(i if i else '1'), len(i)
-    
-    
+
+
+
 def preprocess(code):
     code_s = len(code)
     processed = ''
@@ -25,13 +26,12 @@ def preprocess(code):
             pc += s
             continue
     
-        if code[pc] in '#V^-+.,><':
+        if code[pc] in 'V^-+.,><':
             frames.append(code[pc])
         else:
             processed += code[pc]
     
         pc += 1
-    
     if frames:
         processed += i * frames.pop()
     
@@ -39,6 +39,8 @@ def preprocess(code):
     
     
 def interpret(code, debug=False):
+    lib = {"a": ">--[-----<+>]<-----."}
+
     pc, pointer, pointerTwo = 0, 0, 0
     grid = [[0] * WIDTH for _ in range(HEIGHT)]
     
@@ -88,15 +90,18 @@ def interpret(code, debug=False):
         elif code[pc] == "#":
             print(color(grid[pointerTwo][pointer], grid[pointerTwo][pointer + 1], grid[pointerTwo][pointer + 2]), end='')
         elif code[pc] == "\\":
-            pc+=1
+          pc+=1
+        elif code[pc] in lib:
+          code = code[:pc] + preprocess(lib[code[pc]]) + code[pc+1:]
+          if debug:
+            print(code)
         pc+=1
-    
-        if debug:
+        if True:
             print(grid, " ", code[pc-1])
     
     
-WIDTH, HEIGHT = 20, 20
-code = ',>+255>+255>+0<<#<.'
+WIDTH, HEIGHT = 5, 1
+code = 'a'
 
 processed = preprocess(code)
 interpret(processed)
