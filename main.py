@@ -9,8 +9,6 @@ def get_int(code, pc):
         pc += 1
     return int(i if i else '1'), len(i)
 
-
-
 def preprocess(code):
     code_s = len(code)
     processed = ''
@@ -35,30 +33,29 @@ def preprocess(code):
         processed += i * frames.pop()
     
     return processed
-    
-    
+ 
 def interpret(code, debug=False):
     lib = {}#example: {"r": "-#[-]"} so when "r" is called it will then do "-#[-]"
     read = False
     string=""
     pc, pointer, pointerTwo = 0, 0, 0
     grid = [[0] * WIDTH for _ in range(HEIGHT)]
-    
+
     while pc < len(code):
-        if code[pc] == "<":
+        if code[pc] == "<":#go left
             pointer = (pointer - 1) % WIDTH
-        elif code[pc] == ">":
+        elif code[pc] == ">":#go right
             pointer = (pointer + 1) % WIDTH
-        elif code[pc] == "V":
+        elif code[pc] == "V":#go down
             pointerTwo = (pointerTwo - 1) % HEIGHT
-        elif code[pc] == "^":
+        elif code[pc] == "^":#go up
             pointerTwo = (pointerTwo + 1) % HEIGHT
-        elif code[pc] == "-":
+        elif code[pc] == "-":#subtract 1 
             grid[pointerTwo][pointer] = (grid[pointerTwo][pointer] - 1) % 256
-        elif code[pc] == "+":
+        elif code[pc] == "+":#add 1
             grid[pointerTwo][pointer] = (grid[pointerTwo][pointer] + 1) % 256
-    
-        elif code[pc] == "[":
+
+        elif code[pc] == "[":#loop
             if grid[pointerTwo][pointer] == 0:
                 pairs = 1
                 while pairs or code[pc] != "]":
@@ -67,8 +64,8 @@ def interpret(code, debug=False):
                         pairs += 1
                     elif code[pc] == "]":
                         pairs -= 1
-    
-        elif code[pc] == "]":
+
+        elif code[pc] == "]":# end of loop
             if grid[pointerTwo][pointer] != 0:
                 pairs = 1
                 while pairs or code[pc] != "[":
@@ -77,45 +74,52 @@ def interpret(code, debug=False):
                         pairs += 1
                     elif code[pc] == "[":
                         pairs -= 1
-    
-        elif code[pc] == "`":
+
+        elif code[pc] == "`":# get string of charicters
             var = map(ord, input())
             for char in var:
                 grid[pointerTwo][pointer] = char
                 pointerTwo = pointerTwo - 1
-        elif code[pc] == ".":
+
+        elif code[pc] == ".":#print char or define a char for a library
           if not read:
             print(chr(grid[pointerTwo][pointer]), end='')
           else:
             string += chr(grid[pointerTwo][pointer])
-        elif code[pc] == ",":
+
+        elif code[pc] == ",":# get 1 charicter input
             grid[pointerTwo][pointer] = ord(input()[0])
-        elif code[pc] == "#":
+
+        elif code[pc] == "#":#change color
             print(color(grid[pointerTwo][pointer], grid[pointerTwo][pointer + 1], grid[pointerTwo][pointer + 2]), end='')
-        elif code[pc] == "\\":
+
+        elif code[pc] == "\\":#skip next char
           pc+=1
-        elif code[pc] in lib:
+
+        elif code[pc] in lib:#run a function in the library
           code = code[:pc] + preprocess(lib[code[pc]]) + code[pc+1:]
-          if debug:
+          if debug:#for cool people
             print(code)
-        elif code[pc] == "$":
+
+        elif code[pc] == "$":#read libraries
           if read:
             s= open(string,"r").read()
             for pair in s.split(';'):
               if pair:
                 a, b = pair.split(':')
                 lib[a] = b
+                if debug:#for cool people
+                  print(a,b)
             string=""
             read = False
           else:
             read = True
         pc+=1
-        if debug:
+        if debug:#for cool people
             print(grid, " ", code[pc-1])
-    
-    
-WIDTH, HEIGHT = 10, 1
-code = '\$\-\-\[\-\5\>\+\<\]\>\-\3\.\+\1\2\.\-\3\.\+\3\.\+\3\.\$r+[-5>+3<]>+.---.+7..+3[-3>+<]>-5.--[->+4<]>-.-8.+3.-6.-8.-[-3>+<]>.'
+
+WIDTH, HEIGHT = 10, 10#width and height of grid 
+code = '\$\-\-\[\-\5\>\+\<\]\>\-\3\.\+\1\2\.\-\3\.\+\3\.\+\3\.\$r+[-5>+3<]>+.---.+7..+3[-3>+<]>-5.--[->+4<]>-.-8.+3.-6.-8.-[-3>+<]>.'# the code
 
 processed = preprocess(code)
 interpret(processed)
