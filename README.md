@@ -1,4 +1,4 @@
-<h2>Brain-Fuck-Pluse<div align="right"> V3.5 </div></h2>
+<h2>Brain-Fuck-Pluse<div align="right"> V4 </div></h2>
 
 <img src="Brain Fuck+ logo.png" alt="drawing" width="200"/>
 <hr>
