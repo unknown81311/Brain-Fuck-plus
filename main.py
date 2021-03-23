@@ -87,7 +87,7 @@ def interpret(code, debug=False):
             grid[pointerTwo][pointer] = ord(input()[0])
         elif code[pc] == "#":
             print(color(grid[pointerTwo][pointer], grid[pointerTwo][pointer + 1], grid[pointerTwo][pointer + 2]), end='')
-        elif code[pc] == "\":
+        elif code[pc] == "\\":
             pc+=1
         pc+=1
     
