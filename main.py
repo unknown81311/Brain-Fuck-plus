@@ -38,7 +38,7 @@ def preprocess(code):
     
     
 def interpret(code, debug=False):
-    lib = {"r": "-#[-]"}
+    lib = {}#example: {"r": "-#[-]"} so when "r" is called it will then do "-#[-]"
     read = False
     string=""
     pc, pointer, pointerTwo = 0, 0, 0
