@@ -60,7 +60,7 @@ def interpret(code, debug=False):
             if grid[pointerTwo][pointer] == 0:
                 pairs = 1
                 while pairs or code[pc] != "]":
-                    pc = pc + 1
+                    pc+=1
                     if code[pc] == "[":
                         pairs += 1
                     elif code[pc] == "]":
@@ -70,7 +70,7 @@ def interpret(code, debug=False):
             if grid[pointerTwo][pointer] != 0:
                 pairs = 1
                 while pairs or code[pc] != "[":
-                    pc = pc - 1
+                    pc-=1
                     if code[pc] == "]":
                         pairs += 1
                     elif code[pc] == "[":
@@ -87,8 +87,9 @@ def interpret(code, debug=False):
             grid[pointerTwo][pointer] = ord(input()[0])
         elif code[pc] == "#":
             print(color(grid[pointerTwo][pointer], grid[pointerTwo][pointer + 1], grid[pointerTwo][pointer + 2]), end='')
-
-        pc = pc + 1
+        elif code[pc] == "\":
+            pc+=1
+        pc+=1
     
         if debug:
             print(grid, " ", code[pc-1])
