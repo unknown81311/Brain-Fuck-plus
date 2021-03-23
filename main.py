@@ -1,6 +1,4 @@
 # brain fuck+ by unknown81311#6616 & NotGrey#2415
-import re
-
 def color(r=0, g=0, b=0):return f"\033[38;2;{r};{g};{b}m"
     
 def get_int(code, pc):
