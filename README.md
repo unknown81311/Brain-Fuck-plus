@@ -1,4 +1,4 @@
-<h2>Brain-Fuck-Pluse<div align="right"> V3.1 </div></h2>
+<h2>Brain-Fuck-Pluse<div align="right"> V3.5 </div></h2>
 
 <img src="Brain Fuck+ logo.png" alt="drawing" width="200"/>
 <hr>
@@ -18,7 +18,7 @@
 | # | set color of text in the terminal for fun!                                          |
 | V | moves head/pointer down.                                                            |
 | ^ | moves head/pointer up.                                                              |
-
+|lib| make a charicter do a script of bf for every time it is ran                         |
 ### Code examples
 
  ``` V`[.^]```
