@@ -15,6 +15,7 @@
 | + | adds 1 to the curret head's/pointer's data, if it is 255 then it will go to 0.                                        |
 | \` | get input string by setting each character's asci code down the "graph".                                             |
 |num| repeats last key x times                                                                                              |
+|() | repeats last set of keys x times                                                                                      |
 | # | set color of text in the terminal for fun!                                                                            |
 | V | moves head/pointer down.                                                                                              |
 | ^ | moves head/pointer up.                                                                                                |
