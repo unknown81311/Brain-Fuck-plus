@@ -1,7 +1,7 @@
 # brain fuck+ by unknown81311#6616 & NotGrey#2415
-def color(r=0, g=0, b=0):return f"\033[38;2;{r};{g};{b}m"
+def color(r=0, g=0, b=0):return f"\033[38;2;{r};{g};{b}m"# color text for "#".
     
-def get_int(code, pc):
+def get_int(code, pc):#get number for preprocess.
     i = ''
     code_s = len(code)
     while pc < code_s and code[pc].isdigit():
@@ -9,7 +9,7 @@ def get_int(code, pc):
         pc += 1
     return int(i if i else '1'), len(i)
 
-def preprocess(code):
+def preprocess(code):#before run we take the code and copy code by the number
     code_s = len(code)
     processed = ''
     pc = 0
@@ -23,9 +23,9 @@ def preprocess(code):
             pc += s
             continue
     
-        if code[pc] in 'V^-+.,><':
+        if code[pc] in 'V^-+.,><':#all code that can be coppied "x" times.
             frames.append(code[pc])
-        elif code[pc] in "(":
+        elif code[pc] in "(":#if in paretheses copy code in it.
             tmp=""
             pc += 1
             while code[pc] != ")":
@@ -45,11 +45,11 @@ def preprocess(code):
     return processed
  
 def interpret(code, debug=False):
-    lib = {}#example: {"r": "-#[-]"} so when "r" is called it will then do "-#[-]"
-    read = False
-    string=""
+    lib = {}#lib to be added by "$".
+    read = False#for library name reading.
+    string=""#for library name reading.
     pc, pointer, pointerTwo = 0, 0, 0
-    grid = [[0] * WIDTH for _ in range(HEIGHT)]
+    grid = [[0] * WIDTH for _ in range(HEIGHT)]#make grid.
 
     while pc < len(code):
         if code[pc] == "<":#go left
@@ -107,7 +107,7 @@ def interpret(code, debug=False):
           pc+=1
 
         elif code[pc] in lib:#run a function in the library
-          code = code[:pc] + preprocess(lib[code[pc]]) + code[pc+1:]
+          code = code[:pc] + preprocess(lib[code[pc]]) + code[pc+1:]#re run preprocess from imported code.
           if debug:#for cool people
             print(code)
 
@@ -129,7 +129,7 @@ def interpret(code, debug=False):
             print(grid, " ", code[pc-1])
 
 WIDTH, HEIGHT = 10, 10#width and height of grid 
-code = '\$\-\-\[\-\5\>\+\<\]\>\-\3\.\+\1\2\.\-\3\.\+\3\.\+\3\.\$r+[-5>+3<]>+.---.+7..+3[-3>+<]>-5.--[->+4<]>-.-8.+3.-6.-8.-[-3>+<]>.'# the code
+code = '\$\-\-\[\-\5\>\+\<\]\>\-\3\.\+\1\2\.\-\3\.\+\3\.\+\3\.\$r+[-5>+3<]>+.---.+7..+3[-3>+<]>-5.--[->+4<]>-.-8.+3.-6.-8.-[-3>+<]>.'# the code with an example.
 
 processed = preprocess(code)
 interpret(processed)
