@@ -25,8 +25,18 @@ def preprocess(code):
     
         if code[pc] in 'V^-+.,><':
             frames.append(code[pc])
+        elif code[pc] in "(":
+            tmp=""
+            pc += 1
+            while code[pc] != ")":
+              tmp += code[pc]
+              pc += 1
+            pc += 1
+            i, j = get_int(code, pc)
+            pc += j
+            frames.append(tmp * i)
         else:
-            processed += code[pc]
+          processed += code[pc]
     
         pc += 1
     if frames:
