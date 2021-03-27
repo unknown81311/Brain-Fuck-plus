@@ -1,4 +1,4 @@
-<h2>Brain-Fuck-Plus<div align="right"> V4.6 </div></h2>
+<h2>Brain-Fuck-Plus<div align="right"> V4.8 </div></h2>
 
 <img src="Brain Fuck+ logo.png" alt="drawing" width="200"/>
 <hr>
@@ -23,6 +23,7 @@
 | ^ | moves head/pointer up.                                                                                                |
 | \\ | this will skip the next charicter.                                                                                   |
 | $ | inbetween 2 $ it will try to read a formatted file to be then added to a library to be called on in the code latter on|
+| ! | same as $ but instead of reading a file, it runs python with exec()                                                   |
 ### Code examples
 
  ``` V`[.^]```
