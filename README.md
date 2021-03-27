@@ -3,7 +3,7 @@
 <img src="Brain Fuck+ logo.png" alt="drawing" width="200"/>
 <hr>
 
-###keys
+### keys
 
 | key | Description                                                                                                         |
 |-----|---------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +49,7 @@ this will change the text color to red!
 
 <hr>
 
-###notes:
+### notes:
 
 <p>it is best to lean normal Brain Fuck then come back to this, it will make it easier for you.</p>
 <hr>
