@@ -1,7 +1,7 @@
 # brain fuck+ by unknown81311#6616 & NotGrey#2415
-def color(r=0, g=0, b=0):return f"\033[38;2;{r};{g};{b}m"# color text for "#".
+def color(r=0, g=0, b=0):return f"\033[38;2;{r};{g};{b}m"
     
-def get_int(code, pc):#get number for preprocess.
+def get_int(code, pc):
     i = ''
     code_s = len(code)
     while pc < code_s and code[pc].isdigit():
@@ -9,7 +9,7 @@ def get_int(code, pc):#get number for preprocess.
         pc += 1
     return int(i if i else '1'), len(i)
 
-def preprocess(code):#before run we take the code and copy code by the number
+def preprocess(code):
     code_s = len(code)
     processed = ''
     pc = 0
@@ -23,9 +23,9 @@ def preprocess(code):#before run we take the code and copy code by the number
             pc += s
             continue
     
-        if code[pc] in 'V^-+.,><':#all code that can be coppied "x" times.
+        if code[pc] in 'V^-+.,><':
             frames.append(code[pc])
-        elif code[pc] in "(":#if in paretheses copy code in it.
+        elif code[pc] in "(":
             tmp=""
             pc += 1
             while code[pc] != ")":
@@ -45,11 +45,14 @@ def preprocess(code):#before run we take the code and copy code by the number
     return processed
  
 def interpret(code, debug=False):
-    lib = {}#lib to be added by "$".
-    read = False#for library name reading.
-    string=""#for library name reading.
+    lib = {}#example: {"r": "-#[-]"} so when "r" is called it will then do "-#[-]"
+    read = False
+    string=""
+
+    stringTwo=""
+
     pc, pointer, pointerTwo = 0, 0, 0
-    grid = [[0] * WIDTH for _ in range(HEIGHT)]#make grid.
+    grid = [[0] * WIDTH for _ in range(HEIGHT)]
 
     while pc < len(code):
         if code[pc] == "<":#go left
@@ -91,7 +94,7 @@ def interpret(code, debug=False):
                 grid[pointerTwo][pointer] = char
                 pointerTwo = pointerTwo - 1
 
-        elif code[pc] == ".":#print char or define a char for a library
+        elif code[pc] == ".":#print char or define a char for a library or define a char to run a script
           if not read:
             print(chr(grid[pointerTwo][pointer]), end='')
           else:
@@ -107,7 +110,7 @@ def interpret(code, debug=False):
           pc+=1
 
         elif code[pc] in lib:#run a function in the library
-          code = code[:pc] + preprocess(lib[code[pc]]) + code[pc+1:]#re run preprocess from imported code.
+          code = code[:pc] + preprocess(lib[code[pc]]) + code[pc+1:]
           if debug:#for cool people
             print(code)
 
@@ -121,6 +124,14 @@ def interpret(code, debug=False):
                 if debug:#for cool people
                   print(a,b)
             string=""
+            read = False
+          else:
+            read = True
+        elif code[pc] == "!":#run some py code
+          if read:
+            exec(string)
+            if debug:#for cool people
+              print("code:",string)
             read = False
           else:
             read = True
