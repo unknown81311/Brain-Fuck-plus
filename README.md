@@ -1,4 +1,4 @@
-<h2>Brain-Fuck-Plus<div align="right"> V4.8 </div></h2>
+<h2>Brain-Fuck-Plus<div align="right"> V4.9 </div></h2>
 
 <img src="Brain Fuck+ logo.png" alt="drawing" width="200"/>
 <hr>
@@ -38,7 +38,7 @@
 
 <hr>
 
-```$--[-5>+<]>-3.+12.-3.+3.+3.$```
+```$+99.+12.-3.+3.+3.$```
 
 this will read a file called "color" then try to add that to a library to then be called on.
 
