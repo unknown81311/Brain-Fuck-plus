@@ -139,7 +139,7 @@ def interpret(code, debug=False):
         if debug:#for cool people
             print(grid, " ", code[pc-1])
 
-WIDTH, HEIGHT = 10, 10#width and height of grid 
+WIDTH, HEIGHT = 10, 10 #width and height of grid 
 code = '\$\-\-\[\-\5\>\+\<\]\>\-\3\.\+\1\2\.\-\3\.\+\3\.\+\3\.\$r+[-5>+3<]>+.---.+7..+3[-3>+<]>-5.--[->+4<]>-.-8.+3.-6.-8.-[-3>+<]>.'# the code with an example.
 
 processed = preprocess(code)
