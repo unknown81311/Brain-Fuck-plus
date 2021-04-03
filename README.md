@@ -5,26 +5,26 @@
 
 ### keys
 
-| key | Description                                                                                                         |
-|-----|---------------------------------------------------------------------------------------------------------------------|
-| , | get input characters, down the grid.                                                                                  |
-| ! | get input characters, to the right on the grid.                                                                       |
-| . | print data character.                                                                                                 |
-| < | moves head/pointer left.                                                                                              |
-| > | moves head/pointer right.                                                                                             |
-| \[ | loops through the code untill the current head's/pointer's data is 0.                                                |
-| ] | end of loop.                                                                                                          |
-| - | subtract 1 from the curret head's/pointer's data, if it is 0 then it will go to 255.                                  |
-| + | adds 1 to the curret head's/pointer's data, if it is 255 then it will go to 0.                                        |
-| \` | get input string by setting each character's asci code down the "graph".                                             |
-|num| repeats last key x times                                                                                              |
-|() | repeats last set of keys x times                                                                                      |
-| # | set color of text in the terminal for fun!                                                                            |
-| V | moves head/pointer down.                                                                                              |
-| ^ | moves head/pointer up.                                                                                                |
-| \\ | this will skip the next charicter.                                                                                   |
-| $ | inbetween 2 $ it will try to read a formatted file to be then added to a library to be called on in the code latter on|
-| ! | same as $ but instead of reading a file, it runs python with exec()                                                   |
+| key | Description                                                                                                          |
+|-----|----------------------------------------------------------------------------------------------------------------------|
+| , | get input characters.                                                                                                  |
+| . | print data character.                                                                                                  |
+| < | moves head/pointer left.                                                                                               |
+| > | moves head/pointer right.                                                                                              |
+| \[ | loops through the code untill the current head's/pointer's data is 0.                                                 |
+| ] | end of loop.                                                                                                           |
+| - | subtract 1 from the curret head's/pointer's data, if it is 0 then it will go to 255.                                   |
+| + | adds 1 to the curret head's/pointer's data, if it is 255 then it will go to 0.                                         |
+| \` | get input string by setting each character's asci code down the "graph".                                              |
+| ~ | get input string by setting each character's asci code to the right on the "graph".                                    |
+|num| repeats last key x times.                                                                                              |
+|() | repeats last set of keys x times.                                                                                      |
+| # | set color of text in the terminal for fun!                                                                             |
+| V | moves head/pointer down.                                                                                               |
+| ^ | moves head/pointer up.                                                                                                 |
+| \\ | this will skip the next charicter.                                                                                    |
+| $ | inbetween 2 $ it will try to read a formatted file to be then added to a library to be called on in the code latter on.|
+| ! | same as $ but instead of reading a file, it runs python with exec.                                                     |
 ### Code examples
 
  ``` V`[.^]```
