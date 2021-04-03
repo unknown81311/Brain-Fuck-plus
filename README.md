@@ -7,7 +7,8 @@
 
 | key | Description                                                                                                         |
 |-----|---------------------------------------------------------------------------------------------------------------------|
-| , | get input characters.                                                                                                 |
+| , | get input characters, down the grid.                                                                                  |
+| ! | get input characters, to the right on the grid.                                                                       |
 | . | print data character.                                                                                                 |
 | < | moves head/pointer left.                                                                                              |
 | > | moves head/pointer right.                                                                                             |
