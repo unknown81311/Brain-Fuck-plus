@@ -93,6 +93,12 @@ def interpret(code, debug=False):
             for char in var:
                 grid[pointerTwo][pointer] = char
                 pointerTwo = pointerTwo - 1
+                
+        elif code[pc] == "~":# get string of charicters
+            var = map(ord, input())
+            for char in var:
+                grid[pointerTwo][pointer] = char
+                pointer = pointer + 1
 
         elif code[pc] == ".":#print char or define a char for a library or define a char to run a script
           if not read:
